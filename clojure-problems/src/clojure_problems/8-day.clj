@@ -46,22 +46,9 @@
 ((fn [a b] (for [x a y b] [x y])) #{1 2 3} #{4 5}) 
 ((fn [a b] (into #{} (for [x a y b] [x y]))) #{1 2 3} #{4 5}) 
 
+;; "for" usage
 (take 100 (for [x (range 100000000) y (range 1000000) :while (< y x)] [x y]))
 
-
-(defn foo [a]
-  (fn [b]
-    [a b]))
-
-((foo #{1 2 3}) #{4 5})
-
-(defn make-cartesian-product [a b]
-  (let [c (vec a)
-        d (vec b)
-        e [c d]]
-    #{e}))
-
-(make-cartesian-product #{1 2 3} #{4 5})
 
 
 
